@@ -1,0 +1,22 @@
+
+<div>
+<form [formGroup]="studentForm">
+<div>
+  First Name:<input type="text" formControlName="firstname" required>
+</div>
+<div>
+Last Name:<input type="text" formControlName="lastname">
+</div>
+<div>
+Age:<input type="text" formControlName="age">
+</div>
+<div formArrayName="mobilenos">
+<div *ngFor="let mobile of studentForm.get('mobilenos').controls; let i=index;">mobile No.
+  <input type="text" [formControlName]="i" required>
+  <button (click)="deletemobNo(i)">Delete</button>
+</div>
+<div><button (click)="addmobileno()">Add more</button></div>
+</div>
+<button (click)="see()">click</button>
+</form>
+</div>
